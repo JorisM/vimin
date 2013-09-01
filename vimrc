@@ -1,4 +1,5 @@
-execute pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 syntax on
 set background=dark
 let g:solarized_termtrans = 1
