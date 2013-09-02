@@ -6,4 +6,4 @@
 `:e <filename>`
 
 #Vertical/horizontal split screen
-`:vsp` and `:hsp`
+`:vsp` and `:sp`
