@@ -10,6 +10,6 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "bundle/coffee"]
-	path = bundle/coffee
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
