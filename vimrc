@@ -1,7 +1,7 @@
+syntax enable
 let mapleader = "-"
 call pathogen#incubate()
 call pathogen#helptags()
-syntax enable
 set background=dark
 "colorscheme solarized
 set nocompatible
