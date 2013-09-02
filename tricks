@@ -4,3 +4,6 @@
 
 #file browsing
 `:e <filename>`
+
+#Vertical/horizontal split screen
+`:vsp` and `:hsp`
