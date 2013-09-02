@@ -20,3 +20,5 @@ set autoindent
 set number
 set incsearch
 set hlsearch
+map <F3> :mksession! ~/vim_session <cr> " Quick write session with F2
+map <F4> :source ~/vim_session <cr>     " And load session with F3
