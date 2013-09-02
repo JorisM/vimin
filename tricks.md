@@ -4,6 +4,7 @@
 
 ###Insert
 
+
 `i` or `I` for start of line
 
 `a` (insert after cursor)
@@ -15,15 +16,18 @@
 ###find
 
 `fN` find the next word starting with N
+
 `3fN` Jump forward to 3rd word with N
 
 ###copy paste
 `yy` yank line
+
 `y` yank under cursor	
 
 
 ###Moving
 `w` Move forward by one word: `W` treat continuous code as one word
+
 `b` Move backwards by one word
 
 
@@ -33,6 +37,7 @@ They all start with z, because it looks like a folded piece of paper
 
 ###Copy a word
 `viw` (visualy select inner word)
+
 `yiw` (yank inner word)
 
 ###file browsing
@@ -48,12 +53,14 @@ They all start with z, because it looks like a folded piece of paper
 
 ###Change
 `cw` change word
+
 `3cw` change three words
 
 
 ###Undo
 
 `u`
+
 `ctrl + r` --> redo
 
 ###delete until <word> occurs
