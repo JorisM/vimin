@@ -1,8 +1,9 @@
+let mapleader = "-"
 call pathogen#incubate()
 call pathogen#helptags()
 syntax on
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 set nocompatible
 filetype on
 filetype plugin on
@@ -19,4 +20,3 @@ set autoindent
 set number
 set incsearch
 set hlsearch
-
