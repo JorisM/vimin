@@ -2,4 +2,5 @@
 `viw` (visualy select inner word)
 `yiw` (yank inner word)
 
-
+#file browsing
+`:e <filename>`

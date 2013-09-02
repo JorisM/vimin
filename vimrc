@@ -2,7 +2,6 @@ call pathogen#incubate()
 call pathogen#helptags()
 syntax on
 set background=dark
-let g:solarized_termtrans = 1
 colorscheme solarized
 set nocompatible
 filetype on
