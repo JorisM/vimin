@@ -72,4 +72,4 @@ They all start with z, because it looks like a folded piece of paper
 `:h <searchterm>`, exit with `:bd` --> buffer delete
 
 ###Search and replace
-`:5,12s/foo/bar/g`	 Change each 'foo' to 'bar' for all lines from line 5 to line 12 inclusive.
+`:5,12s/foo/bar/g`	 Change each 'foo' to 'bar' for all lines from line 5 to line 12 inclusive. (g stands for global, append c if you want to ask for confirmation)
