@@ -47,6 +47,20 @@ They all start with z, because it looks like a folded piece of paper
 
 `:vsp` and `:sp`
 
+
+`CTRL-w n`	Creates a new window above the current window
+`CTRL-w j`	Moves the cursor to the window below the current one
+`CTRL-w k`	Moves the cursor to the window above the current one
+`CTRL-w s`	Splits the current window - creates a new window editing the same file as the current window
+`CTRL-w o`	Make the current window the only window. Closes all other windows.
+
+###Surround
+With surround plugin: 
+
+`ysiw]` Surround foo with [foo]
+see https://github.com/tpope/vim-surround for more
+
+
 ###Delete from cursor to end of line
 
 `d$`
@@ -73,3 +87,4 @@ They all start with z, because it looks like a folded piece of paper
 
 ###Search and replace
 `:5,12s/foo/bar/g`	 Change each 'foo' to 'bar' for all lines from line 5 to line 12 inclusive. (g stands for global, append c if you want to ask for confirmation)
+

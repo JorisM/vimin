@@ -1,10 +1,10 @@
 let mapleader = "-"
 call pathogen#incubate()
 call pathogen#helptags()
-call pathogen#infect()
+execute pathogen#infect()
 syntax enable
 set background=dark
-"colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 set nocompatible
 filetype on
 filetype plugin on
@@ -19,20 +19,20 @@ set autoindent
 set number
 set incsearch
 set hlsearch
+set guifont=Ubuntu\ Mono\ 11
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set tabstop=4
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+"autostart vim
 
 "mappings
-
-"save
-command -nargs=0 -bar Update if &modified 
-                           \|    if empty(bufname('%'))
-                           \|        browse confirm write
-                           \|    else
-                           \|        confirm write
-                           \|    endif
-                           \|endif
-nnoremap <silent> <C-S> :<C-u>Update<CR>
-
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
 map <F3> :mksession! ~/vim_session <cr> " Quick write session with F2
 map <F4> :source ~/vim_session <cr>     " And load session with F3
+map <C-n> :NERDTreeToggle<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
