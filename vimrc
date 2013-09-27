@@ -3,8 +3,8 @@ call pathogen#incubate()
 call pathogen#helptags()
 execute pathogen#infect()
 syntax enable
-set background=dark
 colorscheme Tomorrow-Night-Eighties
+set background=dark
 set nocompatible
 filetype on
 filetype plugin on
@@ -20,13 +20,15 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set backupdir=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set synmaxcol=2048
 set showcmd
-set autoindent
 set number
 set incsearch
 set hlsearch
 set guifont=Ubuntu\ Mono\ 11
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set tabstop=4
+set smartindent 
+set autoindent
+set shiftwidth=4 	"This is somehow important, otherwise smartinendt will make two tabs. 
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
@@ -34,7 +36,12 @@ set laststatus=2
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title
 set backspace=indent,eol,start
+set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
+
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+
 "mappings
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
@@ -48,6 +55,7 @@ map <Up> <Nop>
 map <Down> <Nop>
 noremap <silent> <Leader>s :if expand("%") == ""<CR>browse confirm w<CR>else<CR>confirm w<CR>endif<CR>
 noremap <Leader>q :q<CR>
+cmap w!! %!sudo tee > /dev/null %
 " Mappings to access buffers (don't use "\p" because a
 " " delay before pressing "p" would accidentally paste).
 " " \l       : list buffers
