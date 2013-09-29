@@ -24,11 +24,10 @@ set number
 set incsearch
 set hlsearch
 set guifont=Ubuntu\ Mono\ 11
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set tabstop=4
-set smartindent 
+set smartindent
 set autoindent
-set shiftwidth=4 	"This is somehow important, otherwise smartinendt will make two tabs. 
+set shiftwidth=4 	"This is somehow important, otherwise smartinendt will make two tabs.
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
@@ -41,7 +40,7 @@ set undofile		"set an undo file for when bufers are reopened
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
 au FocusLost * :wa "automatically save after focus is lost
 hi IndentGuidesOdd  ctermbg=black	"indent plugin settings
-hi IndentGuidesEven ctermbg=darkgrey 
+hi IndentGuidesEven ctermbg=darkgrey
 
 "mappings
 vnoremap <Tab> >gv	"remaps so that when tab is pressed in visual mode, it indents the selected code
@@ -78,7 +77,14 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+inoremap ;<cr> <end>;<cr>
+inoremap .<cr> <end>.
+inoremap ;;<cr> <down><end>;<cr>
+inoremap ..<cr> <down><end>.
 
+
+
+"
 "This is the autocomplete section
 "
 " Disable AutoComplPop.
@@ -120,8 +126,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 		  let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-"This ends the automcomplete section
-
-
-
 let g:vim_markdown_folding_disabled=1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='tomorrow'
+
