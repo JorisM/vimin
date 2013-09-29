@@ -37,12 +37,15 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title
 set backspace=indent,eol,start
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
+set undofile		"set an undo file for when bufers are reopened
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
-
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+au FocusLost * :wa "automatically save after focus is lost
+hi IndentGuidesOdd  ctermbg=black	"indent plugin settings
+hi IndentGuidesEven ctermbg=darkgrey 
 
 "mappings
+vnoremap <Tab> >gv	"remaps so that when tab is pressed in visual mode, it indents the selected code
+vnoremap <leader-Tab> <gv "reverse from above remap
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
 map <F7> :mksession! ~/.vim_session <cr> " Quick write session with F2
