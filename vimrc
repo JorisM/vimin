@@ -16,8 +16,7 @@ set wildmenu		" Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-set backupdir=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory+=,~/tmp,$TMP
 set synmaxcol=2048
 set showcmd
 set number
