@@ -46,16 +46,17 @@ vnoremap <Tab> >gv	"remaps so that when tab is pressed in visual mode, it indent
 vnoremap <leader-Tab> <gv "reverse from above remap
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
-map <F7> :mksession! ~/.vim_session <cr> " Quick write session with F2
-map <F8> :source ~/.vim_session <cr>     " And load session with F3
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+""reszize split view
+map <Leader>< :30winc <<CR>
+map <Leader>> :30winc ><CR>
 noremap <silent> <Leader>s :if expand("%") == ""<CR>browse confirm w<CR>else<CR>confirm w<CR>endif<CR>
-noremap <Leader>q :q<CR>
+noremap <Leader>q :bd<CR>
 cmap w!! %!sudo tee > /dev/null %
 " Mappings to access buffers (don't use "\p" because a
 " " delay before pressing "p" would accidentally paste).
@@ -81,7 +82,11 @@ inoremap .<cr> <end>.
 inoremap ;;<cr> <down><end>;<cr>
 inoremap ..<cr> <down><end>.
 
-
+"Split window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 "
 "This is the autocomplete section
@@ -100,10 +105,9 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-		"  return neocomplete#smart_close_popup() . "\<CR>"
-		    " For no inserting <CR> key.
-		return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-			"   endfunction
+	"  return neocomplete#smart_close_popup() . "\<CR>"
+	" For no inserting <CR> key.
+	return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 
@@ -122,10 +126,31 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-		  let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
 let g:vim_markdown_folding_disabled=1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 
+"this is for startify
+let NERDTreeHijackNetrw = 0
+let g:startify_custom_header = [
+                \ '   __      ___            ______ ____   ',
+                \ '   \ \    / (_)           |____  |___ \ ',
+                \ '    \ \  / / _ _ __ ___       / /  __) |',
+                \ '     \ \/ / | | ''_ ` _ \     / /  |__ <',
+                \ '      \  /  | | | | | | |   / /   ___) |',
+                \ '       \/   |_|_| |_| |_|  /_(_) |____/ ',
+                \ '',
+                \ '',
+                \ ]
+let g:startify_session_persistence = 0
+let g:startify_session_detection = 1
+let g:startify_session_autoload = 1
+
+"coffe plugin
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+let g:instant_markdown_slow = 1		"markdown only refresh on save
+autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/

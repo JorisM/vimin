@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/joris/Projects/vim/.git'
-let g:netrw_dirhist_2='/home/joris/Projects/vim/bundle'
-let g:netrw_dirhist_3='/home/joris'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/joris/Projects/bejoo/assets/scripts/user/event/show/app'
+let g:netrw_dirhist_2='/home/joris/Projects/bejoo/assets/scripts/user/event/show/controllers'
+let g:netrw_dirhist_3='/home/joris/Projects/bejoo/assets/scripts/user/event/show/entities'
+let g:netrw_dirhist_4='/home/joris/Projects/bejoo/assets/scripts/user/event/show/views'
+let g:netrw_dirhist_5='/home/joris/Projects/bejoo/assets/scripts/user/event/show/app'
+let g:netrw_dirhist_6='/home/joris/Projects/bejoo/assets/scripts/user/event/show/controllers'
+let g:netrw_dirhist_7='/home/joris/Projects/bejoo/assets/scripts/user/event/show/entities'

@@ -1,0 +1,347 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_complete) unite#sources#neocomplete#start_complete()
+inoremap <silent> <expr> <Plug>(neocomplete_start_unite_quick_match) unite#sources#neocomplete#start_quick_match()
+inoremap <silent> <Plug>(neocomplete_start_auto_complete) =neocomplete#mappings#popup_post()
+inoremap <Plug>(EmmetAnchorizeSummary) =emmet#anchorizeURL(1)
+inoremap <Plug>(EmmetAnchorizeURL) =emmet#anchorizeURL(0)
+inoremap <Plug>(EmmetRemoveTag) =emmet#removeTag()
+inoremap <Plug>(EmmetSplitJoinTag) :call emmet#splitJoinTag()
+inoremap <Plug>(EmmetToggleComment) =emmet#toggleComment()
+inoremap <Plug>(EmmetImageSize) =emmet#imageSize()
+inoremap <Plug>(EmmetMovePrev) :call emmet#moveNextPrev(1)
+inoremap <Plug>(EmmetMoveNext) :call emmet#moveNextPrev(0)
+inoremap <Plug>(EmmetBalanceTagOutward) :call emmet#balanceTag(-1)
+inoremap <Plug>(EmmetBalanceTagInward) :call emmet#balanceTag(1)
+inoremap <Plug>(EmmetExpandWord) =emmet#expandAbbr(1,"")
+inoremap <Plug>(EmmetExpandAbbr) =emmet#expandAbbr(0,"")<Right>
+inoremap <silent> <Plug>delimitMateS-Tab =delimitMate#JumpAny()
+inoremap <silent> <Plug>delimitMateSpace =delimitMate#ExpandSpace()
+inoremap <silent> <Plug>delimitMateCR =delimitMate#ExpandReturn()
+inoremap <silent> <expr> <Plug>delimitMateS-BS delimitMate#WithinEmptyPair() ? "\<Del>" : "\<S-BS>"
+inoremap <silent> <Plug>delimitMateBS =delimitMate#BS()
+inoremap <silent> <Plug>delimitMate` =delimitMate#QuoteDelim("\`")
+inoremap <silent> <Plug>delimitMate' =delimitMate#QuoteDelim("\'")
+inoremap <silent> <Plug>delimitMate" =delimitMate#QuoteDelim("\"")
+inoremap <silent> <Plug>delimitMate] =delimitMate#JumpOut("\]")
+inoremap <silent> <Plug>delimitMate} =delimitMate#JumpOut("\}")
+inoremap <silent> <Plug>delimitMate) =delimitMate#JumpOut("\)")
+inoremap <silent> <Plug>delimitMate[ =delimitMate#ParenDelim("]")
+inoremap <silent> <Plug>delimitMate{ =delimitMate#ParenDelim("}")
+inoremap <silent> <Plug>delimitMate( =delimitMate#ParenDelim(")")
+inoremap <expr> <BS> neocomplete#smart_close_popup()."\"
+nnoremap  h
+vnoremap 	 >gv	"remaps so that when tab is pressed in visual mode, it indents the selected code
+nnoremap <NL> j
+nnoremap  k
+nnoremap  l
+map  :NERDTreeToggle
+vmap c <Plug>(EmmetCodePretty)
+vmap m <Plug>(EmmetMergeLines)
+nmap A <Plug>(EmmetAnchorizeSummary)
+nmap a <Plug>(EmmetAnchorizeURL)
+nmap k <Plug>(EmmetRemoveTag)
+nmap j <Plug>(EmmetSplitJoinTag)
+nmap / <Plug>(EmmetToggleComment)
+nmap i <Plug>(EmmetImageSize)
+nmap N <Plug>(EmmetMovePrev)
+nmap n <Plug>(EmmetMoveNext)
+vmap D <Plug>(EmmetBalanceTagOutward)
+nmap D <Plug>(EmmetBalanceTagOutward)
+vmap d <Plug>(EmmetBalanceTagInward)
+nmap d <Plug>(EmmetBalanceTagInward)
+nmap ; <Plug>(EmmetExpandWord)
+vmap , <Plug>(EmmetExpandAbbr)
+nmap , <Plug>(EmmetExpandAbbr)
+nmap <silent> ,sv :so $MYVIMRC
+nmap <silent> ,ev :e $MYVIMRC
+vnoremap <leader-Tab> <gv "reverse from above remap
+xmap S <Plug>VSurround
+nmap \\u <Plug>CommentaryUndo
+nmap \\\ <Plug>CommentaryLine
+nmap \\ <Plug>Commentary
+xmap \\ <Plug>Commentary
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nmap gcu <Plug>CommentaryUndo
+nmap gcc <Plug>CommentaryLine
+nmap gc <Plug>Commentary
+xmap gc <Plug>Commentary
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+map <F7> :mksession! ~/.vim_session  " Quick write session with F2
+map <F8> :source ~/.vim_session      " And load session with F3
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nnoremap <silent> <Plug>SurroundRepeat .
+vnoremap <Plug>(EmmetCodePretty) :call emmet#codePretty()
+vnoremap <Plug>(EmmetMergeLines) :call emmet#mergeLines()
+nnoremap <Plug>(EmmetAnchorizeSummary) :call emmet#anchorizeURL(1)
+nnoremap <Plug>(EmmetAnchorizeURL) :call emmet#anchorizeURL(0)
+nnoremap <Plug>(EmmetRemoveTag) :call emmet#removeTag()
+nnoremap <Plug>(EmmetSplitJoinTag) :call emmet#splitJoinTag()
+nnoremap <Plug>(EmmetToggleComment) :call emmet#toggleComment()
+nnoremap <Plug>(EmmetImageSize) :call emmet#imageSize()
+nnoremap <Plug>(EmmetMovePrev) :call emmet#moveNextPrev(1)
+nnoremap <Plug>(EmmetMoveNext) :call emmet#moveNextPrev(0)
+vnoremap <Plug>(EmmetBalanceTagOutward) :call emmet#balanceTag(-2)
+nnoremap <Plug>(EmmetBalanceTagOutward) :call emmet#balanceTag(-1)
+vnoremap <Plug>(EmmetBalanceTagInward) :call emmet#balanceTag(2)
+nnoremap <Plug>(EmmetBalanceTagInward) :call emmet#balanceTag(1)
+nnoremap <Plug>(EmmetExpandWord) :call emmet#expandAbbr(1,"")
+vnoremap <Plug>(EmmetExpandAbbr) :call emmet#expandAbbr(2,"")
+nnoremap <Plug>(EmmetExpandAbbr) :call emmet#expandAbbr(3,"")
+map <Down> <Nop>
+map <Up> <Nop>
+map <Right> <Nop>
+map <Left> <Nop>
+inoremap <expr>  neocomplete#cancel_popup()
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <expr>  neocomplete#smart_close_popup()."\"
+inoremap <expr> 	 pumvisible() ? "\" : "\	"
+imap  <Plug>Isurround
+imap A <Plug>(EmmetAnchorizeSummary)
+imap a <Plug>(EmmetAnchorizeURL)
+imap k <Plug>(EmmetRemoveTag)
+imap j <Plug>(EmmetSplitJoinTag)
+imap / <Plug>(EmmetToggleComment)
+imap i <Plug>(EmmetImageSize)
+imap N <Plug>(EmmetMovePrev)
+imap n <Plug>(EmmetMoveNext)
+imap D <Plug>(EmmetBalanceTagOutward)
+imap d <Plug>(EmmetBalanceTagInward)
+imap ; <Plug>(EmmetExpandWord)
+imap , <Plug>(EmmetExpandAbbr)
+inoremap <expr>  neocomplete#close_popup()
+inoremap .. <Down><End>.
+inoremap . <End>.
+inoremap ;; <Down><End>;
+inoremap ; <End>;
+nmap <silent> öig <Plug>IndentGuidesToggle
+nnoremap <silent> öt :CommandT
+nnoremap ö0 :10b
+nnoremap ö9 :9b
+nnoremap ö8 :8b
+nnoremap ö7 :7b
+nnoremap ö6 :6b
+nnoremap ö5 :5b
+nnoremap ö4 :4b
+nnoremap ö3 :3b
+nnoremap ö2 :2b
+nnoremap ö1 :1b
+nnoremap ög :e#
+nnoremap öf :bn
+nnoremap öb :bp
+nnoremap öl :ls
+noremap öq :q
+noremap <silent> ös :if expand("%") == ""browse confirm welseconfirm wendif
+map öa :call RunAllSpecs()
+cmap w!! %!sudo tee > /dev/null %
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set completefunc=neocomplete#complete#manual_complete
+set completeopt=preview,menuone
+set directory=.,~/tmp,/var/tmp,/tmp,,~/tmp,$TMP
+set noequalalways
+set exrc
+set fileencodings=ucs-bom,utf-8,default,latin1
+set helplang=en
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set lazyredraw
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:���
+set runtimepath=~/.vim,~/.vim/bundle/ag.vim,~/.vim/bundle/command-t,~/.vim/bundle/delimitMate,~/.vim/bundle/emmet-vim,~/.vim/bundle/markdown,~/.vim/bundle/minibufexpl,~/.vim/bundle/neocomplete,~/.vim/bundle/nerdtree,~/.vim/bundle/rails,~/.vim/bundle/solarized,~/.vim/bundle/syntastic,~/.vim/bundle/vim-airline,~/.vim/bundle/vim-coffee-script,~/.vim/bundle/vim-commentary,~/.vim/bundle/vim-endwise,~/.vim/bundle/vim-fugitive,~/.vim/bundle/vim-handlebars,~/.vim/bundle/vim-indent-guides,~/.vim/bundle/vim-jade,~/.vim/bundle/vim-javascript,~/.vim/bundle/vim-less,~/.vim/bundle/vim-rails,~/.vim/bundle/vim-repeat,~/.vim/bundle/vim-rspec,~/.vim/bundle/vim-startify,~/.vim/bundle/vim-surround,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim74,/usr/local/share/vim/vimfiles/after,~/.vim/bundle/markdown/after,~/.vim/bundle/vim-coffee-script/after,~/.vim/after
+set scrolloff=3
+set secure
+set shiftwidth=4
+set showcmd
+set smartcase
+set smartindent
+set synmaxcol=2048
+set tabstop=4
+set title
+set undofile
+set updatetime=1500
+set wildmenu
+set wildmode=list:longest
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/Projects/vim
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 vimrc
+args vimrc
+edit vimrc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+imap <buffer> <S-Tab> <Plug>delimitMateS-Tab
+imap <buffer> <S-BS> <Plug>delimitMateS-BS
+inoremap <buffer> <Plug>delimitMateJumpMany =delimitMate#JumpMany()
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+imap <buffer> <silent> g <Plug>delimitMateJumpMany
+imap <buffer> " <Plug>delimitMate"
+imap <buffer> ' <Plug>delimitMate'
+imap <buffer> ( <Plug>delimitMate(
+imap <buffer> ) <Plug>delimitMate)
+imap <buffer> [ <Plug>delimitMate[
+imap <buffer> ] <Plug>delimitMate]
+imap <buffer> ` <Plug>delimitMate`
+imap <buffer> { <Plug>delimitMate{
+imap <buffer> } <Plug>delimitMate}
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=neocomplete#complete#auto_complete
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!airline#statusline(1)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=2048
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=4
+setlocal tags=~/Projects/vim/.git/vim.tags,~/Projects/vim/.git/tags,./tags,./TAGS,tags,TAGS
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal undofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 138 - ((61 * winheight(0) + 31) / 63)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+138
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
