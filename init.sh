@@ -1,6 +1,6 @@
 #!/bin/bash
 git submodule init
-git submodule update
-~/.vim/ruby/command-t/ruby extconf.rb
+git submodule foreach git pull
+cd ~/.vim/bundle/command-t/ruby/command-t; extconf.rb
 make
 

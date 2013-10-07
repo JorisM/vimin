@@ -143,15 +143,12 @@ let g:airline_theme='tomorrow'
 "this is for startify
 let NERDTreeHijackNetrw = 0
 let g:startify_custom_header = [
-                \ '   __      ___            ______ ____   ',
-                \ '   \ \    / (_)           |____  |___ \ ',
-                \ '    \ \  / / _ _ __ ___       / /  __) |',
-                \ '     \ \/ / | | ''_ ` _ \     / /  |__ <',
-                \ '      \  /  | | | | | | |   / /   ___) |',
-                \ '       \/   |_|_| |_| |_|  /_(_) |____/ ',
-                \ '',
-                \ '',
-                \ ]
+				   \'      (_)___  _____(_)____   _   __(_)___ ___     /__  // // /',
+				   \'     / / __ \/ ___/ / ___/  | | / / / __ `__ \      / // // /',
+				   \'    / / /_/ / /  / (__  )   | |/ / / / / / / /     / //__  __/',
+				   \' __/ /\____/_/  /_/____/    |___/_/_/ /_/ /_/     /_/(_)/_/   ',
+				   \'/___/                                                         ',               
+				   \ ]
 let g:startify_session_persistence = 0
 let g:startify_session_detection = 1
 let g:startify_session_autoload = 1
