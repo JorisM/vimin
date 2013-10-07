@@ -31,11 +31,16 @@ set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set laststatus=2
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1                   " Show 3 lines of context around the cursor.
 set title
 set backspace=indent,eol,start
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 set undofile		"set an undo file for when bufers are reopened
+set foldmethod=indent
+set foldlevel=3
+set foldclose=all
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
 au FocusLost * :wa "automatically save after focus is lost
 hi IndentGuidesOdd  ctermbg=black	"indent plugin settings
@@ -47,6 +52,8 @@ vnoremap <leader-Tab> <gv "reverse from above remap
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
 map <C-n> :NERDTreeToggle<CR>
+map <C-t> :TlistToggle<CR>
+nnoremap <C-r> :GundoToggle<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Left> <Nop>
 map <Right> <Nop>
