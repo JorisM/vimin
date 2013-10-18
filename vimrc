@@ -3,6 +3,7 @@ call pathogen#incubate()
 call pathogen#helptags()
 execute pathogen#infect()
 syntax enable
+set t_Co=256
 colorscheme Tomorrow-Night-Eighties
 set background=dark
 set nocompatible
@@ -147,7 +148,7 @@ let g:startify_custom_header = [
 				   \'     / / __ \/ ___/ / ___/  | | / / / __ `__ \      / // // /',
 				   \'    / / /_/ / /  / (__  )   | |/ / / / / / / /     / //__  __/',
 				   \' __/ /\____/_/  /_/____/    |___/_/_/ /_/ /_/     /_/(_)/_/   ',
-				   \'/___/                                                         ',               
+				   \'/___/                                                         ',
 				   \ ]
 let g:startify_session_persistence = 0
 let g:startify_session_detection = 1
@@ -156,12 +157,18 @@ let g:startify_session_autoload = 1
 "coffe plugin
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
-let g:instant_markdown_slow = 1		"markdown only refresh on save
-autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://localhost:8090/
-
-
 "different vimdiff colors because i dislike the default
 highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
 highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magent
+highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
+
+let g:EasyMotion_leader_key = 'ü'
+
+" Open markdown files with Chrome
+autocmd BufEnter *.md exe 'noremap <Leader>m :!google-chrome %:p<CR>''
+
+
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-D>'
+let g:multi_cursor_skip_key='<C-s>'
