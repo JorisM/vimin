@@ -39,6 +39,7 @@ set backspace=indent,eol,start
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 set undofile		"set an undo file for when bufers are reopened
 set foldmethod=indent
+set foldlevelstart=99
 set foldlevel=3
 set foldclose=all
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
@@ -164,4 +165,7 @@ autocmd BufWritePost *.md,*.markdown :silent !cat %:p | curl -X PUT -T - http://
 highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
 highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magent
+highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
+
+
+let g:EasyMotion_leader_key = 'ü'

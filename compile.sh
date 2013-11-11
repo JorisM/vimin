@@ -6,6 +6,6 @@ else
 	git clone https://github.com/b4winckler/vim ~/tmp/vim
 fi
 cd ~/tmp/vim
-./configure --prefix=/usr/local --with-features=huge --enable-python3interp --with-compiledby='Joris Morger' --enable-gui=gnome2 --enable-luainterp --enable-rubyinterp --enable-pythoninterp
+./configure --prefix=/usr/e --with-features=huge --enable-python3interp --with-compiledby='Joris Morger' --enable-gui=auto --enable-luainterp --enable-rubyinterp --enable-pythoninterp
 make
 sudo make install
