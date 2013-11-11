@@ -3,6 +3,7 @@ call pathogen#incubate()
 call pathogen#helptags()
 execute pathogen#infect()
 syntax enable
+set t_Co=256
 colorscheme Tomorrow-Night-Eighties
 set background=dark
 set nocompatible
@@ -167,5 +168,12 @@ highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=R
 highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
 highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
 
-
 let g:EasyMotion_leader_key = 'ü'
+
+" Open markdown files with Chrome
+autocmd BufEnter *.md exe 'noremap <Leader>m :!google-chrome %:p<CR>''
+
+
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-D>'
+let g:multi_cursor_skip_key='<C-s>'

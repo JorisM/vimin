@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/joris/Projects/bejoo/assets/scripts/user/event/show/app'
 let g:netrw_dirhist_2='/home/joris/Projects/bejoo/assets/scripts/user/event/show/controllers'
 let g:netrw_dirhist_3='/home/joris/Projects/bejoo/assets/scripts/user/event/show/entities'
@@ -7,5 +7,4 @@ let g:netrw_dirhist_4='/home/joris/Projects/bejoo/assets/scripts/user/event/show
 let g:netrw_dirhist_5='/home/joris/Projects/bejoo/assets/scripts/user/event/show/app'
 let g:netrw_dirhist_6='/home/joris/Projects/bejoo/assets/scripts/user/event/show/controllers'
 let g:netrw_dirhist_7='/home/joris/Projects/bejoo/assets/scripts/user/event/show/entities'
-let g:netrw_dirhist_8='/home/joris/Projects/sapi/config/environments'
-let g:netrw_dirhist_9='/home/joris/Projects/sapi/config'
+let g:netrw_dirhist_8='/home/jorismorger/.zsh'
