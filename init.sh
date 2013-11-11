@@ -2,6 +2,6 @@
 git submodule init
 git submodule update
 cd ~/.vim/bundle/command-t/ruby/command-t
-make extconf.rb
+ruby extconf.rb
 make
 
