@@ -40,7 +40,7 @@ set backspace=indent,eol,start
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 set undofile		"set an undo file for when bufers are reopened
 set foldmethod=indent
-set foldlevel=3
+set foldlevel=6
 set foldclose=all
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
 au FocusLost * :wa "automatically save after focus is lost
@@ -80,7 +80,7 @@ nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
 nnoremap <Leader>4 :4b<CR>
 nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
+	nnoremap <Leader>6 :6b<CR>
 nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
@@ -132,6 +132,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
@@ -144,18 +145,19 @@ let g:airline_theme='tomorrow'
 "this is for startify
 let NERDTreeHijackNetrw = 0
 let g:startify_custom_header = [
-				   \'      (_)___  _____(_)____   _   __(_)___ ___     /__  // // /',
-				   \'     / / __ \/ ___/ / ___/  | | / / / __ `__ \      / // // /',
-				   \'    / / /_/ / /  / (__  )   | |/ / / / / / / /     / //__  __/',
-				   \' __/ /\____/_/  /_/____/    |___/_/_/ /_/ /_/     /_/(_)/_/   ',
-				   \'/___/                                                         ',
-				   \ ]
+\'		 _			  _				  _				 _____ __ __',
+\'      (_)___  _____(_)____   _   __(_)___ ___     /__  // // /',
+\'     / / __ \/ ___/ / ___/  | | / / / __ `__ \      / // // /',
+\'    / / /_/ / /  / (__  )   | |/ / / / / / / /     / //__  __/',
+\' __/ /\____/_/  /_/____/    |___/_/_/ /_/ /_/     /_/(_)/_/',
+\'/___/',
+\ ]
 let g:startify_session_persistence = 0
 let g:startify_session_detection = 1
 let g:startify_session_autoload = 1
 
 "coffe plugin
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=4 noexpandtab
 
 "different vimdiff colors because i dislike the default
 highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
@@ -172,3 +174,7 @@ autocmd BufEnter *.md exe 'noremap <Leader>m :!google-chrome %:p<CR>''
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-D>'
 let g:multi_cursor_skip_key='<C-s>'
+
+
+:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+
