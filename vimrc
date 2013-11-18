@@ -40,7 +40,8 @@ set backspace=indent,eol,start
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 set undofile		"set an undo file for when bufers are reopened
 set foldmethod=indent
-set foldlevel=6
+set foldlevelstart=99
+set foldlevel=3
 set foldclose=all
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
 au FocusLost * :wa "automatically save after focus is lost
@@ -80,7 +81,7 @@ nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
 nnoremap <Leader>4 :4b<CR>
 nnoremap <Leader>5 :5b<CR>
-	nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>6 :6b<CR>
 nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
@@ -132,7 +133,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
@@ -174,7 +174,3 @@ autocmd BufEnter *.md exe 'noremap <Leader>m :!google-chrome %:p<CR>''
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-D>'
 let g:multi_cursor_skip_key='<C-s>'
-
-
-:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-
