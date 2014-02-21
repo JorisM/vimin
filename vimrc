@@ -3,10 +3,10 @@ call pathogen#incubate()
 call pathogen#helptags()
 execute pathogen#infect()
 syntax enable
-set t_Co=256
+set t_Co=256 "set proper terminal colors
 colorscheme Tomorrow-Night-Eighties
 set background=dark
-set nocompatible
+set nocompatible	"noop in most cases, only needed when changing system wide vimrc, but better safe than sorry
 filetype on
 filetype plugin on
 filetype indent on
@@ -31,18 +31,14 @@ set shiftwidth=4 	"This is somehow important, otherwise smartinendt will make tw
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
-set laststatus=2
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1                   " Show 3 lines of context around the cursor.
 set title
-set backspace=indent,eol,start
+set backspace=indent,eol,start "allow backspace to remove chars in insert mode
 set clipboard=unnamedplus				"yank to global clipboard instead of vim register
 set undofile		"set an undo file for when bufers are reopened
-set foldmethod=indent
-set foldlevelstart=99
-set foldlevel=3
-set foldclose=all
+
 autocmd FileType php set keywordprg=pman "Adding phpdoc for shift k
 au FocusLost * :wa "automatically save after focus is lost
 hi IndentGuidesOdd  ctermbg=black	"indent plugin settings
@@ -51,12 +47,13 @@ hi IndentGuidesEven ctermbg=darkgrey
 "mappings
 vnoremap <Tab> >gv	"remaps so that when tab is pressed in visual mode, it indents the selected code
 vnoremap <leader-Tab> <gv "reverse from above remap
-nmap <silent> ,ev :e $MYVIMRC<cr>
-nmap <silent> ,sv :so $MYVIMRC<cr>
-map <C-n> :NERDTreeToggle<CR>
-map <C-t> :TlistToggle<CR>
-nnoremap <C-r> :GundoToggle<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<cr> "edit vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<cr> "source vimrc
+
+map <C-n> :NERDTreeToggle<CR> "open nerdtree
+map <C-t> :TlistToggle<CR> "open taglist
+nnoremap <C-u> :GundoToggle<CR> "open undo list
+map <Leader>r :call RunAllSpecs()<CR> "run rspec
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
@@ -133,6 +130,8 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
@@ -174,3 +173,14 @@ autocmd BufEnter *.md exe 'noremap <Leader>m :!google-chrome %:p<CR>''
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-D>'
 let g:multi_cursor_skip_key='<C-s>'
+
+
+
+let g:vdebug_options = {
+			\ 'server': '127.0.0.1'
+			\}
+let g:vdebug_options["break_on_open"]=0
+
+let g:goldenview__enable_default_mapping = 0
+nmap <silent> <C-m>  <Plug>GoldenViewNext
+

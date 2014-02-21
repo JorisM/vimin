@@ -101,3 +101,9 @@
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "bundle/fsharp"]
+	path = bundle/fsharp
+	url = git://github.com/kongo2002/fsharp-vim.git
+[submodule "bundle/GoldenView.vim"]
+	path = bundle/GoldenView.vim
+	url = https://github.com/zhaocai/GoldenView.Vim
