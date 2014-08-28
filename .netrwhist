@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/jorismorger/etc/cert/vpnbriggerstrasse/config-fedora.ovpn'
-let g:netrw_dirhist_2='/home/jorismorger/Projects/BejooAndroidNew/app/src/main/res/values'
-let g:netrw_dirhist_3='/home/jorismorger/Projects/heimcontrol.js/.git'
-let g:netrw_dirhist_4='/home/jorismorger/Projects/dashboard/.git'
-let g:netrw_dirhist_5='/home/jorismorger/Downloads/test.js'
-let g:netrw_dirhist_6='/home/jorismorger/Projects/CVote/web/assets/js/lib/bower/handlebars'
-let g:netrw_dirhist_7='/home/jorismorger/Projects/CVote/Dokumente/mockups/abstimmung'
+let g:netrw_dirhist_cnt =0

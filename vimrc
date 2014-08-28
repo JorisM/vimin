@@ -28,7 +28,7 @@ set tabstop=4
 set smartindent
 set autoindent
 set shiftwidth=4 	"This is somehow important, otherwise smartinendt will make two tabs.
-set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+" set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precdes:«,trail 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
