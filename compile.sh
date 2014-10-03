@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 DIRECTORY=~/tmp/vim
 if [ -d "$DIRECTORY" ]; then
 	cd ~/tmp/vim
